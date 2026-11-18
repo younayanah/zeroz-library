@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>제로즈 무료 자료실</title>
+<meta name="description" content="몸과 마음을 다루는 일로, 내 이름 걸고 일하는 선생님을 위한 무료 자료">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FBFAF7;--card:#FFFFFF;--ink:#171717;--sub:#6B6660;--line:#E8E3DB;--red:#96363D;--cream:#F2EDE4;}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#161514;--card:#1F1D1B;--ink:#F2EDE4;--sub:#A8A199;--line:#33302C;--red:#C8646B;--cream:#26231F;}}
+:root[data-theme="dark"]{--bg:#161514;--card:#1F1D1B;--ink:#F2EDE4;--sub:#A8A199;--line:#33302C;--red:#C8646B;--cream:#26231F;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR",system-ui,sans-serif;font-weight:300;line-height:1.75;-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-wrap:break-word}
+a{color:inherit}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px}
+header{padding:28px 0 8px;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;text-decoration:none}
+.brand b{font-weight:700;font-size:20px;letter-spacing:-.01em}
+.brand span{font-size:13px;color:var(--sub)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--red);margin-right:2px;transform:translateY(-2px)}
+main{padding:28px 0 64px}
+h1{font-size:26px;font-weight:700;line-height:1.4;margin:0 0 8px;letter-spacing:-.02em}
+.lead{color:var(--sub);margin:0 0 28px}
+.fields{display:grid;gap:12px}
+.field{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;text-decoration:none;transition:border-color .15s}
+.field:hover{border-color:var(--red)}
+.field b{display:block;font-weight:700;font-size:18px}
+.field span{color:var(--sub);font-size:14px}
+.field em{float:right;font-style:normal;font-size:13px;color:var(--red);font-weight:500}
+.back{display:inline-block;font-size:14px;color:var(--sub);text-decoration:none;margin-bottom:16px}
+.list{display:grid;gap:10px}
+.item{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;text-decoration:none}
+.item:hover{border-color:var(--red)}
+.item small{color:var(--red);font-weight:500;font-size:12px}
+.item b{display:block;font-weight:500;font-size:16px;margin:2px 0}
+.item span{color:var(--sub);font-size:14px}
+.doc h2{font-size:18px;font-weight:700;margin:28px 0 6px}
+.doc p{margin:0 0 12px}
+.doc ul{margin:0 0 12px;padding-left:20px}
+.doc blockquote{margin:0 0 12px;padding:8px 14px;border-left:3px solid var(--red);background:var(--cream);border-radius:0 8px 8px 0}
+.doc pre{position:relative;background:var(--cream);border-radius:10px;padding:14px;white-space:pre-wrap;font-size:14px;margin:0 0 12px}
+.copy{position:absolute;top:8px;right:8px;font:inherit;font-size:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:6px;padding:2px 8px;cursor:pointer}
+.fade{position:relative;height:90px;margin-top:-90px;background:linear-gradient(to bottom,transparent,var(--bg));pointer-events:none}
+.gate{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;margin-top:8px}
+.gate b{font-weight:700;font-size:17px;display:block;margin-bottom:4px}
+.gate p{color:var(--sub);font-size:14px;margin:0 0 14px}
+.gate input[type=email]{width:100%;font:inherit;font-size:16px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+.gate label{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--sub);margin:12px 0}
+.btn{display:inline-block;width:100%;font:inherit;font-weight:500;font-size:16px;padding:13px;border:0;border-radius:10px;background:var(--red);color:#fff;cursor:pointer;text-align:center;text-decoration:none}
+.err{color:var(--red);font-size:13px;margin-top:8px;min-height:1em}
+.cta{margin-top:36px;padding:20px;border-radius:14px;background:var(--cream)}
+.cta b{font-weight:700;display:block;margin-bottom:4px}
+.cta p{margin:0 0 12px;font-size:14px;color:var(--sub)}
+.cta a{font-weight:500;color:var(--red)}
+footer{border-top:1px solid var(--line);padding:20px 0 40px;font-size:12px;color:var(--sub)}
+.empty{color:var(--sub);padding:20px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header><a class="brand" href="#/"><b><i class="dot"></i>제로즈 무료 자료실</b><span>웰니스 전문 디자인 스튜디오</span></a></header>
+  <main id="app"><p class="empty">불러오는 중…</p></main>
+  <footer>© 제로즈(ZEROZ) · 하나의 브랜드 → 하나의 기억 장치<br>로고 · 명함 · 웹사이트 디자인 문의: 카카오톡 '제로즈 스튜디오'(검색 @제로즈)</footer>
+</div>
+<script src="config.js"></script>
+<script>
+(function(){
+const C = window.ZEROZ_LIBRARY;
+const app = document.getElementById('app');
+let DATA = {items:[]};
+const KEY = 'zeroz_library_unlocked';
+function unlocked(){ try { return localStorage.getItem(KEY) === '1'; } catch(e){ return window.__unl === true; } }
+function setUnlocked(){ window.__unl = true; try { localStorage.setItem(KEY,'1'); } catch(e){} }
+function esc(s){ return String(s||'').replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+function inline(s){ return esc(s).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>'); }
+function renderBlocks(blocks){
+  let h = '', inList = false;
+  blocks.forEach(b=>{
+    if (b.t !== 'li' && inList){ h += '</ul>'; inList = false; }
+    if (b.t === 'h') h += '<h2>'+inline(b.x)+'</h2>';
+    else if (b.t === 'li'){ if(!inList){ h += '<ul>'; inList = true; } h += '<li>'+inline(b.x)+'</li>'; }
+    else if (b.t === 'quote') h += '<blockquote>'+inline(b.x)+'</blockquote>';
+    else if (b.t === 'code') h += '<pre><button class="copy" data-copy>복사</button><code>'+esc(b.x)+'</code></pre>';
+    else h += '<p>'+inline(b.x)+'</p>';
+  });
+  if (inList) h += '</ul>';
+  return h;
+}
+function cta(){
+  return '<div class="cta"><b>내 브랜드, 어디부터 손봐야 할지 궁금하다면</b><p>21문항 무료 브랜드 셀프 체크리스트로 먼저 확인해 보세요.</p><a href="'+esc(C.checklistUrl)+'" target="_blank" rel="noopener">브랜드 셀프 체크리스트 받기 →</a></div>';
+}
+function home(){
+  document.title = C.name;
+  const counts = {}; DATA.items.forEach(i=>{counts[i.field]=(counts[i.field]||0)+1;});
+  app.innerHTML = '<h1>'+esc(C.name)+'</h1><p class="lead">'+esc(C.tagline)+'</p><div class="fields">'+
+    C.fields.map(f=>'<a class="field" href="#/f/'+encodeURIComponent(f.key)+'"><em>'+(counts[f.key]||0)+'개</em><b>'+esc(f.title)+'</b><span>'+esc(f.desc)+'</span></a>').join('')+'</div>'+cta();
+}
+function field(key){
+  const f = C.fields.find(x=>x.key===key) || {title:key,desc:''};
+  document.title = f.title+' · '+C.name;
+  const items = DATA.items.filter(i=>i.field===key);
+  app.innerHTML = '<a class="back" href="#/">← 처음으로</a><h1>'+esc(f.title)+'</h1><p class="lead">'+esc(f.desc)+'</p>'+
+    (items.length ? '<div class="list">'+items.map(i=>'<a class="item" href="#/r/'+encodeURIComponent(i.slug)+'"><small>'+esc(i.kind||'')+'</small><b>'+esc(i.title)+'</b><span>'+esc(i.summary||'')+'</span></a>').join('')+'</div>' : '<p class="empty">곧 자료가 올라와요.</p>');
+}
+function item(slug){
+  const it = DATA.items.find(i=>i.slug===slug);
+  if(!it){ app.innerHTML = '<a class="back" href="#/">← 처음으로</a><p class="empty">자료를 찾을 수 없어요.</p>'; return; }
+  document.title = it.title+' · '+C.name;
+  const n = it.blocks.length, cut = Math.max(1, Math.round(n * (C.previewRatio||0.25)));
+  const open = unlocked();
+  let h = '<a class="back" href="#/f/'+encodeURIComponent(it.field)+'">← '+esc(it.field)+'</a><h1>'+esc(it.title)+'</h1><p class="lead">'+esc(it.summary||'')+'</p><div class="doc">';
+  h += renderBlocks(open ? it.blocks : it.blocks.slice(0,cut)) + '</div>';
+  if(!open){
+    h += '<div class="fade"></div><form class="gate" id="gate"><b>나머지 내용은 이메일을 남기면 바로 열려요</b><p>한 번만 남기면 이 브라우저에서 모든 자료가 계속 열려 있어요.</p>'+
+      '<input type="email" id="em" required placeholder="이메일 주소" autocomplete="email"><label><input type="checkbox" id="ok" required> '+esc(C.consentText)+'</label><button class="btn" type="submit">자료 전체 보기</button><div class="err" id="err"></div></form>';
+  }
+  h += cta();
+  app.innerHTML = h;
+  const g = document.getElementById('gate');
+  if(g) g.addEventListener('submit', e=>{
+    e.preventDefault();
+    const em = document.getElementById('em').value.trim();
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){ document.getElementById('err').textContent='이메일 주소를 다시 확인해 주세요.'; return; }
+    if(C.formAction && C.emailEntry){
+      const fd = new FormData(); fd.append(C.emailEntry, em);
+      fetch(C.formAction,{method:'POST',mode:'no-cors',body:fd}).catch(()=>{});
+    }
+    setUnlocked(); item(slug); window.scrollTo(0,0);
+  });
+}
+app.addEventListener('click', e=>{
+  const b = e.target.closest('[data-copy]'); if(!b) return;
+  const t = b.parentElement.querySelector('code').innerText;
+  (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(()=>{b.textContent='복사됨';setTimeout(()=>b.textContent='복사',1500);}).catch(()=>{});
+});
+function route(){
+  const h = decodeURIComponent(location.hash.replace(/^#\/?/,''));
+  if(h.startsWith('f/')) field(h.slice(2)); else if(h.startsWith('r/')) item(h.slice(2)); else home();
+}
+fetch('data/library.json',{cache:'no-store'}).then(r=>r.json()).then(d=>{DATA=d;route();}).catch(()=>{app.innerHTML='<p class="empty">자료를 불러오지 못했어요. 잠시 뒤 다시 열어 주세요.</p>';});
+window.addEventListener('hashchange', route);
+})();
+</script>
+</body>
+</html>

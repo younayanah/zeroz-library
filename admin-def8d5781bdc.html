@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>자료실 관리</title>
+<style>
+:root{--bg:#FBFAF7;--card:#fff;--ink:#171717;--sub:#6B6660;--line:#E8E3DB;--red:#96363D}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#161514;--card:#1F1D1B;--ink:#F2EDE4;--sub:#A8A199;--line:#33302C;--red:#C8646B}}
+:root[data-theme="dark"]{--bg:#161514;--card:#1F1D1B;--ink:#F2EDE4;--sub:#A8A199;--line:#33302C;--red:#C8646B}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,"Noto Sans KR",sans-serif;line-height:1.6}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 60px}
+h1{font-size:20px;margin:0 0 4px}
+.sub{color:var(--sub);font-size:13px;margin:0 0 20px}
+.row{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:8px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.row b{flex:1 1 220px;font-weight:500}
+.row small{color:var(--sub)}
+button,a.btn{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:8px;padding:6px 10px;cursor:pointer;text-decoration:none}
+.links{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+pre{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px;white-space:pre-wrap;font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>제로즈 무료 자료실 · 관리</h1>
+  <p class="sub">나만 보는 페이지예요. 주소를 남에게 알려 주지 마세요. 검색엔진에는 잡히지 않아요.</p>
+  <div class="links">
+    <a class="btn" href="./" target="_blank">자료실 열기</a>
+    <a class="btn" href="https://app.notion.com/p/41ccf78ee4cf81b08a13e9f38f3fd699" target="_blank">노션 DM 자료 모음</a>
+    <a class="btn" href="https://docs.google.com/forms" target="_blank">구글 폼(이메일 명단)</a>
+  </div>
+  <h2 style="font-size:16px">자료마다 DM 링크</h2>
+  <div id="list">불러오는 중…</div>
+  <h2 style="font-size:16px">매일 반영 기록</h2>
+  <pre id="log">불러오는 중…</pre>
+</div>
+<script>
+const base = location.origin + location.pathname.replace(/[^/]*$/,'');
+fetch('data/library.json',{cache:'no-store'}).then(r=>r.json()).then(d=>{
+  document.getElementById('list').innerHTML = d.items.map(i=>{
+    const url = base + '#/r/' + encodeURIComponent(i.slug);
+    return '<div class="row"><b>'+i.title.replace(/</g,'&lt;')+'<br><small>'+i.field+' · '+(i.kind||'')+' · '+(i.date||'')+'</small></b><button data-u="'+url+'">DM 링크 복사</button></div>';
+  }).join('') || '자료가 아직 없어요.';
+});
+fetch('data/sync.log',{cache:'no-store'}).then(r=>r.ok?r.text():'기록 없음').then(t=>{document.getElementById('log').textContent=t.trim().split('\n').slice(-14).reverse().join('\n');}).catch(()=>{document.getElementById('log').textContent='기록 없음';});
+document.addEventListener('click',e=>{const b=e.target.closest('[data-u]');if(!b)return;navigator.clipboard&&navigator.clipboard.writeText(b.dataset.u).then(()=>{b.textContent='복사됨';setTimeout(()=>b.textContent='DM 링크 복사',1500);});});
+</script>
+</body>
+</html>
