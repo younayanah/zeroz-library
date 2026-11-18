@@ -1,5 +1,8 @@
 # 제로즈 무료 자료실
 
+주소: https://zeroz-library.vercel.app
+관리자: https://zeroz-library.vercel.app/admin-def8d5781bdc.html
+
 헨리 「콘텐츠 자동화 시스템」 PART 5를 제로즈에 맞게 만든 정적 사이트.
 
 - 원본: 노션 '📘 DM 자료 모음 (무료 자료실 원본)' (collection://41ccf78e-e4cf-81d4-ba5b-000bc5abb74c)
